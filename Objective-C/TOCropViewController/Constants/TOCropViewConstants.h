@@ -55,16 +55,5 @@ typedef NS_ENUM(NSInteger, TOCropViewControllerToolbarPosition) {
 };
 
 static inline NSBundle *TO_CROP_VIEW_RESOURCE_BUNDLE_FOR_OBJECT(NSObject *object) {
-    NSBundle *resourceBundle = nil;
-    
-    NSBundle *classBundle = [NSBundle bundleForClass:object.class];
-    NSURL *resourceBundleURL = [classBundle URLForResource:@"TOCropViewControllerBundle" withExtension:@"bundle"];
-    if (resourceBundleURL) {
-        resourceBundle = [[NSBundle alloc] initWithURL:resourceBundleURL];
-    }
-    else {
-        resourceBundle = classBundle;
-    }
-    
-    return resourceBundle;
+    return [NSBundle bundleForClass:object.class];
 }
